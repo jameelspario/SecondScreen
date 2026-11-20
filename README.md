@@ -47,3 +47,4 @@ Turn your Android phone or tablet into a high-performance, low-latency secondary
 1. Ensure your Mac and Android device are on the same Wi-Fi network.
 2. In the Android app, select the **WiFi** tab.
 3. Tap on **SecondScreen Mac** from the discovered hosts list (or enter your Mac's IP manually).
+
