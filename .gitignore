@@ -8,6 +8,8 @@ maclog*
 
 # Xcode / MacHost build outputs & user state
 build/
+dist/
+*.zip
 MacHost/build/
 DerivedData/
 *.xcuserstate
