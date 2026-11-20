@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+maclog*
+*.log
+
+# Xcode / MacHost build outputs & user state
+build/
+MacHost/build/
+DerivedData/
+*.xcuserstate
+*.xcscmblueprint
+xcuserdata/
+**/xcuserdata/
+
+# Android build outputs & IDE
+.gradle/
+SecondScreenAndroid/.gradle/
+**/build/
+*.apk
+*.aab
+local.properties
+.idea/
+SecondScreenAndroid/.idea/
+*.iml
+.cxx/
+captures/
+
+# Editors
+.vscode/
+*.swp
+*~
