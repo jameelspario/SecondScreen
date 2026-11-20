@@ -6,6 +6,7 @@ struct HostDashboardView: View {
     @State private var selectedWidth: Int = 1920
     @State private var selectedHeight: Int = 1080
     @State private var useHiDPI: Bool = false
+    @State private var showCursor: Bool = true
     @State private var selectedFPS: Double = 60.0
     @State private var portText: String = "7070"
     @State private var copiedAdbCommand: Bool = false
@@ -251,6 +252,10 @@ struct HostDashboardView: View {
                         Toggle("HiDPI (Retina)", isOn: $useHiDPI)
                             .disabled(session.isStreaming)
                             .padding(.top, 16)
+
+                        Toggle("Show Cursor", isOn: $showCursor)
+                            .disabled(session.isStreaming)
+                            .padding(.top, 16)
                     }
                 }
                 .padding()
@@ -282,6 +287,7 @@ struct HostDashboardView: View {
                                     height: selectedHeight,
                                     refreshRate: selectedFPS,
                                     hiDPI: useHiDPI,
+                                    showsCursor: showCursor,
                                     port: port
                                 )
                             }

@@ -29,6 +29,7 @@ public final class StreamingSession: ObservableObject {
         height: Int = 1080,
         refreshRate: Double = 60.0,
         hiDPI: Bool = false,
+        showsCursor: Bool = true,
         port: UInt16 = 7070
     ) async {
         await stopSession()
@@ -87,7 +88,7 @@ public final class StreamingSession: ObservableObject {
             capture.onFrame = { [weak self] pixelBuffer, time in
                 self?.encoder?.encode(pixelBuffer: pixelBuffer, presentationTime: time)
             }
-            try await capture.start(displayID: displayID)
+            try await capture.start(displayID: displayID, showsCursor: showsCursor)
             self.captureSession = capture
 
             self.isStreaming = true

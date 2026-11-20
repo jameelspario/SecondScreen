@@ -29,7 +29,7 @@ public final class ScreenCaptureSession: NSObject, SCStreamOutput, SCStreamDeleg
         }
     }
 
-    public func start(displayID: CGDirectDisplayID) async throws {
+    public func start(displayID: CGDirectDisplayID, showsCursor: Bool = true) async throws {
         // Attempt shareable content retrieval directly — ScreenCaptureKit is the source of truth
         let content: SCShareableContent
         do {
@@ -52,7 +52,7 @@ public final class ScreenCaptureSession: NSObject, SCStreamOutput, SCStreamDeleg
         config.minimumFrameInterval = CMTime(value: 1, timescale: 30)
         config.pixelFormat = kCVPixelFormatType_32BGRA
         config.colorSpaceName = CGColorSpace.sRGB
-        config.showsCursor = false
+        config.showsCursor = showsCursor
 
         let newStream = SCStream(filter: filter, configuration: config, delegate: self)
         try newStream.addStreamOutput(self, type: .screen, sampleHandlerQueue: .global(qos: .userInteractive))
